@@ -38,6 +38,22 @@ clear:both;
 
 .columns {
 	display: flex;
+	flex-direction: column;
+	/*justify-content: space -around;*/
+}
+/*.columns p {
+	width: 33%;
+	padding: 6px;
+}*/
+.gallery {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+
+	flex-wrap: wrap;
+} 
+.gallery img {
+	height: 180px;
 }
 /*.columns p {
 	width: 32%;
