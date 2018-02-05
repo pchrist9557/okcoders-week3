@@ -1,1 +1,61 @@
+body {
+	background-color: "#fbf7f5";
+	background-image: url ("images/new_candy.jpg");
+	
+	font-family: "Futura";
+	
+}
 
+h1{
+	font-family: "Futura";
+	font-size: 40px;
+	text-align: center;
+	text-shadow: 2px 2px 8px;
+	color:#32324e;
+}
+
+img {
+	margin: 0px;
+	width: 400px;
+	height:400px;
+	float: right;
+}
+.float-left {
+	float: left;
+}
+.float-right {
+	float: right;
+}
+.clearfix::after {
+content: "";
+display: block;
+
+clear:both;
+}
+
+/* flex container */
+
+.columns {
+	display: flex;
+	flex-direction: column;
+	/*justify-content: space -around;*/
+}
+/*.columns p {
+	width: 33%;
+	padding: 6px;
+}*/
+.gallery {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+
+	flex-wrap: wrap;
+} 
+.gallery img {
+	height: 180px;
+}
+/*.columns p {
+	width: 32%;
+	float:left;
+	padding: 6px;
+}*/
