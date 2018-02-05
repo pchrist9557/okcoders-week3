@@ -32,7 +32,46 @@ display: block;
 
 clear:both;
 }
+.content {
+	display:flex;
+}
 
+.side-nav, .main {
+	padding:6px;
+}
+
+.side-nav {
+	width: 20%;
+}
+
+.side-nav ul a {
+	color: #444;
+}
+
+.side-nav ul {
+	padding: 0;
+	list-style: none;
+}
+
+.side-nav ul li {
+	width: 100%;
+	padding: 12px;
+	text-align: center;
+	border-bottom: 1px solid #555;
+	box-sizing: border-box;
+}
+.main {
+	width: 80%;
+}
+.footer {
+	color: #000000;
+	height: 100px;
+	text-align: center;
+	background-color: #ffffff;
+}
+.footer p {
+	color: #000000;
+}
 /* flex container */
 
 .columns {
