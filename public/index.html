@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Reading List</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<link href="/stylesheets/style.css" rel="stylesheet">
+	<script type="text/javascript">
+		$("document").ready(function(){
+		var list = $("#bookList");	
+		$.getJSON('/library/books/list', function(data){
+			data.forEach(function(book){
+				list.append('<li class="list-group-item"><strong>' + 
+					book.title + '</strong> by ' + book.author + 
+					'</li>');
+				});
+			});
+		});
+
+		function makeBook(){
+			var url = '/library/books/add';
+			$.ajax({
+				type: "POST",
+				url: url,
+				data: { author: $("#bAuth").val(), title: $("#bName").val(), status: "read" },
+				success: function(res){
+					alert(res);
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<h1>My Reading List</h1>
+
+	<form id="newBook">
+		<div class="form-inline">
+			<input id="bName" class="form-control-plaintext" type="text" placeholder="Book Title">
+			<input id="bAuth"  class="form-control-plaintext" type="text" placeholder="Author">
+			<input onclick="javascript:makeBook()" class="btn btn-primary" type="submit" value="Add">
+		</div>
+	</form>
+
+	<p>&nbsp;</p>
+
+	<ul id="bookList" class="list-group">
+	</ul>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
